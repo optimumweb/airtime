@@ -24,21 +24,14 @@
                     <?php endif; ?>
                 </div>
                 <div class="grid_8 medium_grid_8 text-right mobile-center">
-                    <div id="site-search">
-                        <?php get_search_form(); ?>
-                    </div>
+                    <?php if ( has_nav_menu('primary_navigation') ) : ?>
+                        <nav id="main-nav" role="navigation">
+                            <a class="menu-toggle" href="#menu-primary-navigation"><?php _e("Menu", 'airtime'); ?></a>
+                            <?php wp_nav_menu(array( 'theme_location' => 'primary_navigation' )); ?>
+                        </nav>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php wpbp_header_inside_after(); ?>
         </header>
-        <?php if ( has_nav_menu('primary_navigation') ) : ?>
-            <nav id="main-nav" role="navigation">
-                <div class="<?php wpbp_container_class(); ?>">
-                    <div class="grid_12">
-                        <a class="menu-toggle" href="#menu-primary-navigation"><?php _e("Menu", 'airtime'); ?></a>
-                        <?php wp_nav_menu(array( 'theme_location' => 'primary_navigation' )); ?>
-                    </div>
-                </div>
-            </nav>
-        <?php endif; ?>
         <?php wpbp_header_after(); ?>
