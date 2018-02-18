@@ -1,0 +1,134 @@
+
+/* =============================================================================
+   Mixins
+   ========================================================================== */
+
+.box-shadow(@horizontal: 0px, @vertical: 0px, @blur: 8px, @color: #333) {
+	-webkit-box-shadow: @horizontal @vertical @blur @color;
+	-moz-box-shadow: @horizontal @vertical @blur @color;
+	box-shadow: @horizontal @vertical @blur @color;
+}
+
+.inset-box-shadow(@horizontal: 0px, @vertical: 0px, @blur: 8px, @color: #333) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @color;
+	-moz-box-shadow: inset @horizontal @vertical @blur @color;
+	box-shadow: inset @horizontal @vertical @blur @color;
+}
+
+.multi-border-color(@top, @right, @bottom, @left) {
+	border-top: 1px solid @top;
+	border-left: 1px solid @sides;
+	border-right: 1px solid @sides;
+	border-bottom: 1px solid @bottom;
+}
+
+.vertical-gradient(@start: #000, @stop: #fff) {
+	@mid: ( @start + @stop ) / 2;
+	background: @mid;
+	background: @mid; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(@start, @stop); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(@start, @stop); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(@start, @stop); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(@start, @stop); /* Standard syntax */
+}
+
+.horizontal-gradient(@start: #000, @stop: #fff) {
+	@mid: ( @start + @stop ) / 2;
+	background: @mid; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left, @start , @stop); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, @start, @stop); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, @start, @stop); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, @start , @stop); /* Standard syntax */
+}
+
+.opacity(@opacity: 100) {
+	filter: alpha(opacity=@opacity);
+	-moz-opacity: @opacity/100;
+	-khtml-opacity: @opacity/100;
+	opacity: @opacity/100;
+}
+
+.transition-duration(@duration: 0.2s) {
+	-moz-transition-duration: @duration;
+	-webkit-transition-duration: @duration;
+	-o-transition-duration: @duration;
+	-ms-transition-duration: @duration;
+	transition-duration: @duration;
+}
+
+.rotation(@deg: 5deg){
+	-webkit-transform: rotate(@deg);
+	-moz-transform: rotate(@deg);
+	transform: rotate(@deg);
+}
+
+.scale(@ratio: 1.5){
+	-webkit-transform:scale(@ratio);
+	-moz-transform:scale(@ratio);
+	transform:scale(@ratio);
+}
+
+.transition(@property: all, @duration: 0.2s, @ease: ease-out) {
+	-webkit-transition: @property @duration @ease;
+	-moz-transition: @property @duration @ease;
+	-o-transition: @property @duration @ease;
+	-ms-transition: @property @duration @ease;
+	transition: @property @duration @ease;
+}
+
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+	-moz-column-width: @colwidth;
+	-moz-column-count: @colcount;
+	-moz-column-gap: @colgap;
+	-moz-column-rule-color: @columnRuleColor;
+	-moz-column-rule-style: @columnRuleStyle;
+	-moz-column-rule-width: @columnRuleWidth;
+	-webkit-column-width: @colwidth;
+	-webkit-column-count: @colcount;
+	-webkit-column-gap: @colgap;
+	-webkit-column-rule-color: @columnRuleColor;
+	-webkit-column-rule-style: @columnRuleStyle;
+	-webkit-column-rule-width: @columnRuleWidth;
+	column-width: @colwidth;
+	column-count: @colcount;
+	column-gap: @colgap;
+	column-rule-color: @columnRuleColor;
+	column-rule-style: @columnRuleStyle;
+	column-rule-width: @columnRuleWidth;
+}
+
+.ir(@img) {
+    display: block;
+    border: 0;
+    text-indent: -999em;
+    overflow: hidden;
+    background-image: url("@{img}");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    text-align: left;
+    direction: ltr;
+    
+    br {
+        display: none;
+    }
+}
+
+/* for use on :after */
+.clear() {
+	content: " ";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.gradient-border-bottom(@height, @start, @stop, @spacing: 0.25em) {
+	&:after {
+		content: " ";
+		display: block;
+		width: 100%;
+		height: @height;
+		.horizontal-gradient(@start, @stop);
+		margin-top: @spacing;
+	}
+}

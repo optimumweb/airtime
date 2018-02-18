@@ -1,0 +1,154 @@
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+body {
+  font-family: @baseFontFamily;
+  color: @textColor;
+  font-size: @baseFontSize;
+}
+
+h1, h2, h3 {
+  font-family: @hFontFamily;
+  color: @headingsColor;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+a {
+  color: @primaryColor;
+  text-decoration: none !important;
+  .transition();
+
+  &:hover {
+    color: @complimentaryColor;
+  }
+}
+
+p {
+  line-height: 1.62;
+
+  &.lead {
+    font-size: 1.25em;
+  }
+}
+
+u {
+  border-bottom: 0.0625em solid @contrastColor;
+  text-decoration: none;
+  font-style: normal;
+}
+
+label {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
+}
+
+input,
+textarea,
+select {
+  font-family: @baseFontFamily;
+  font-size: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+input[type="datetime"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid @borderColor;
+  border-radius: @borderRadius;
+}
+
+.button,
+input[type="submit"] {
+  display: inline-block;
+  padding: 0.75em 1.25em;
+  background-color: @primaryColor;
+  color: @white;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border: none !important;
+  border-radius: @borderRadius;
+  .transition();
+
+  &:hover {
+    background-color: @complimentaryColor;
+    color: @white;
+  }
+
+  &.button-block {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  &.button-contrast {
+    background-color: @contrastColor;
+    color: @contrastTextColor;
+
+    &:hover {
+      background-color: darken(@contrastColor, 10%);
+      color: @contrastTextColor;
+    }
+  }
+}
+
+.underline {
+  padding-bottom: 0.25em;
+  border-bottom: 2px solid @complimentaryColor;
+}
+
+table {
+  width: 100%;
+
+  thead > tr > th {
+    border-bottom: 1px solid @borderColor;
+    color: @complimentaryColor;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  td, th {
+    padding: 0.5em;
+  }
+
+  tbody {
+    > tr:nth-child(odd) {
+      > th, > td {
+        background-color: @black5;
+      }
+    }
+  }
+}

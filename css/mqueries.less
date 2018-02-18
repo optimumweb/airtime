@@ -1,0 +1,56 @@
+
+/* =============================================================================
+   Media Queries
+   ========================================================================== */
+
+// Small
+@media screen and (max-width: @screenSmall) {
+
+  #site-search {
+    margin-top: 1em;
+
+    .search-form {
+      max-width: 80%;
+      margin: 0 auto;
+      float: none;
+    }
+  }
+
+  #main-nav {
+    font-size: 1.125em;
+
+    .menu-toggle {
+      display: block;
+    }
+
+    ul.menu {
+      display: none;
+
+      > li {
+        display: block;
+        margin-left: 0;
+
+        > ul.sub-menu {
+          position: static;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}
+
+// Medium
+@media screen and (min-width: @screenSmall) and (max-width: @screenMedium) {}
+
+// Small & Medium
+@media screen and (max-width: @screenMedium) {
+
+  #sidebar {
+    top: 0 !important;
+  }
+
+}
+
+// Large
+@media screen and (min-width: @screenMedium) {}
